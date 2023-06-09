@@ -15,14 +15,23 @@ class ScrapyScraperPipeline:
         self.conn=MongoClient("localhost", 27017)
         self.db=self.conn["news"]
 
-
     def process_item(self, item, spider):
         item=dict(item)
-        self.collection = self.db[item['ago']]
-        self.collection.replace_one(
+        self.collection1 = self.db['api_'+item['query'].lower()]
+        # self.collection2 = self.db["BATCH: "+item["batch"]]
+        self.collection2=self.db["BATCH_HIST"]
+        # item2=item.pop("batch")
+        self.collection1.replace_one(
             {'title': item['title']},
             item,
             upsert=True
         )
-        # self.collection.insert_one(dict(item))
+
+        # self.collection2.replace_one(
+        #     {'title': item['title']},
+        #     item,
+        #     upsert=True
+        # )
+
+        self.collection2.insert_one(dict(item))
         return item

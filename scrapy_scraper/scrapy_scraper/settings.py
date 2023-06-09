@@ -93,3 +93,6 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 DUPEFILTER_CLASS = 'scrapy.dupefilters.BaseDupeFilter'
+
+LOG_ENABLED=False
+LOG_LEVEL='WARN'

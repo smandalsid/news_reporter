@@ -5,11 +5,19 @@
 
 import scrapy
 
-
 class ScrapyScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+    batch=scrapy.Field()
+    time=scrapy.Field()
     query=scrapy.Field()
     title=scrapy.Field()
     link=scrapy.Field()
     ago=scrapy.Field()
+
+# class BatchItem(scrapy.Item):
+#     # define the fields for your item here like:
+#     # name = scrapy.Field()
+#     batch=scrapy.Field()
+#     query=scrapy.Field()
+#     title=scrapy.Field()
+#     link=scrapy.Field()
+#     ago=scrapy.Field()
